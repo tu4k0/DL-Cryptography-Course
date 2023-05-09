@@ -140,6 +140,19 @@ class BigInteger:
         self.uint_array.append(binary[:-bits])
         self.number_hex = self.convert_from_bin_to_hex()
 
+    def ADD(self, number_1, number_2):
+        number_1 = bin(int(number_1, 16))[2:]
+        number_2 = bin(int(number_2, 16))[2:]
+        number_1, number_2 = self.compare_numbers_bin(number_1, number_2)
+        number_1 = int(number_1, 2)
+        number_2 = int(number_2, 2)
+        while number_2 != 0:
+            carry = number_1 & number_2
+            number_1 = number_1 ^ number_2
+            number_2 = carry << 1
+        self.uint_array.append(str(bin(number_1))[2:])
+        self.number_hex = self.convert_from_bin_to_hex()
+
 
 a = BigInteger()
 b = BigInteger()
@@ -151,12 +164,16 @@ a.set_hex('e035c6cfa42609b998b883bc1699df885cef74e2b2cc372eb8fa7e7')
 b.set_hex('5072f028943e0fd5fab3273782de14b1011741bd0c5cd6ba6474330')
 # c.XOR(a.number_hex, b.number_hex)
 # print(c.get_hex())
-a.INV(a.number_hex)
-print(a.get_hex())
-d.OR(a.number_hex, b.number_hex)
-print(int(d.get_hex(), 16))
-e.AND(a.number_hex, b.number_hex)
-print(e.get_hex())
-f.shiftR(a.number_hex, 2)
-print(a.convert_from_hex_to_bin(a.number_hex))
-print(f.uint_array)
+# a.INV(a.number_hex)
+# print(a.get_hex())
+# d.OR(a.number_hex, b.number_hex)
+# print(int(d.get_hex(), 16))
+# e.AND(a.number_hex, b.number_hex)
+# print(e.get_hex())
+# f.shiftR(a.number_hex, 2)
+# print(a.convert_from_hex_to_bin(a.number_hex))
+# print(f.uint_array)
+
+c.ADD('36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80',
+            '70983d692f648185febe6d6fa607630ae68649f7e6fc45b94680096c06e4fadb')
+print(c.get_hex())
