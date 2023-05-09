@@ -153,6 +153,19 @@ class BigInteger:
         self.uint_array.append(str(bin(number_1))[2:])
         self.number_hex = self.convert_from_bin_to_hex()
 
+    def SUB(self, number_1, number_2):
+        number_1 = bin(int(number_1, 16))[2:]
+        number_2 = bin(int(number_2, 16))[2:]
+        number_1, number_2 = self.compare_numbers_bin(number_1, number_2)
+        number_1 = int(number_1, 2)
+        number_2 = int(number_2, 2)
+        while number_2 != 0:
+            borrow = (~number_1) & number_2
+            number_1 = number_1 ^ number_2
+            number_2 = borrow << 1
+        self.uint_array.append(str(bin(number_1))[2:])
+        self.number_hex = self.convert_from_bin_to_hex()
+
 
 a = BigInteger()
 b = BigInteger()
@@ -174,6 +187,6 @@ b.set_hex('5072f028943e0fd5fab3273782de14b1011741bd0c5cd6ba6474330')
 # print(a.convert_from_hex_to_bin(a.number_hex))
 # print(f.uint_array)
 
-c.ADD('36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80',
-            '70983d692f648185febe6d6fa607630ae68649f7e6fc45b94680096c06e4fadb')
+c.SUB('33ced2c76b26cae94e162c4c0d2c0ff7c13094b0185a3c122e732d5ba77efebc',
+            '22e962951cb6cd2ce279ab0e2095825c141d48ef3ca9dabf253e38760b57fe03')
 print(c.get_hex())
