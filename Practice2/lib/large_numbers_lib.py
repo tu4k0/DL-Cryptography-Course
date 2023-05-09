@@ -85,14 +85,12 @@ class BigInteger:
 
     def INV(self, number_1):
         number_1 = bin(int(number_1, 16))[2:]
-        number_1 = self.break_into_chunks(number_1)
         for i in range(0, len(number_1)):
             binary = ''
-            for j in range(0, len(number_1[i])):
-                if number_1[i][j] == '1':
-                    binary += '0'
-                else:
-                    binary += '1'
+            if number_1[i] == '1':
+                binary += '0'
+            elif number_1[i] == '0':
+                binary += '1'
             self.uint_array.append(binary)
         self.number_hex = self.convert_from_bin_to_hex()
 
@@ -130,26 +128,16 @@ class BigInteger:
 
     def shiftL(self, number_1, bits):
         number_1 = bin(int(number_1, 16))[2:]
-        number_1 = self.break_into_chunks(number_1)
-        for i in range(0, len(number_1)):
-            if i == len(number_1)-1:
-                binary = number_1[i]
-                for bit in range(0, bits):
-                    binary += '0'
-                self.uint_array.append(binary)
-            else:
-                self.uint_array.append(number_1[i])
+        binary = number_1
+        for bit in range(0, bits):
+            binary += '0'
+        self.uint_array.append(binary)
         self.number_hex = self.convert_from_bin_to_hex()
 
     def shiftR(self, number_1, bits):
         number_1 = bin(int(number_1, 16))[2:]
-        number_1 = self.break_into_chunks(number_1)
-        for i in range(0, len(number_1)):
-            if i == len(number_1) - 1:
-                binary = number_1[i]
-                self.uint_array.append(binary[:-bits])
-            else:
-                self.uint_array.append(number_1[i])
+        binary = number_1
+        self.uint_array.append(binary[:-bits])
         self.number_hex = self.convert_from_bin_to_hex()
 
 
@@ -163,12 +151,12 @@ a.set_hex('e035c6cfa42609b998b883bc1699df885cef74e2b2cc372eb8fa7e7')
 b.set_hex('5072f028943e0fd5fab3273782de14b1011741bd0c5cd6ba6474330')
 # c.XOR(a.number_hex, b.number_hex)
 # print(c.get_hex())
-# a.INV(a.number_hex)
-# print(a.get_hex())
-# d.OR(a.number_hex, b.number_hex)
-# print(int(d.get_hex(), 16))
-# e.AND(a.number_hex, b.number_hex)
-# print(e.get_hex())
-# f.shiftR(a.number_hex, 2)
-# print(a.convert_from_hex_to_bin(a.number_hex))
-# print(f.uint_array)
+a.INV(a.number_hex)
+print(a.get_hex())
+d.OR(a.number_hex, b.number_hex)
+print(int(d.get_hex(), 16))
+e.AND(a.number_hex, b.number_hex)
+print(e.get_hex())
+f.shiftR(a.number_hex, 2)
+print(a.convert_from_hex_to_bin(a.number_hex))
+print(f.uint_array)
