@@ -6,16 +6,16 @@ from Practice2.lib.large_numbers_lib import BigInteger
 class Tests(unittest.TestCase):
 
     def test_setter(self):
-        number_value = '0x51bf608414ad5726a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470ea4'
+        number_value = '51bf608414ad5726a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470ea4'
         number_1 = BigInteger()
         number_1.set_hex(number_value)
-        self.assertEqual(number_1.number_hex, '0x51bf608414ad5726a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470ea4')
+        self.assertEqual(number_1.number_hex, '51bf608414ad5726a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470ea4')
 
     def test_getter(self):
-        number_value = '0x34aa714414ad7826a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470be2'
+        number_value = '34aa714414ad7826a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470be2'
         number_2 = BigInteger()
         number_2.set_hex(number_value)
-        self.assertEqual(number_2.get_hex(), '0x34aa714414ad7826a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470be2')
+        self.assertEqual(number_2.get_hex(), '34aa714414ad7826a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470be2')
 
     def test_from_hex_to_bin(self):
         number_value = '51bf608414ad5726a3c1bec098f77b1b54ffb2787f8d528a74c1d7fde6470ea4'
