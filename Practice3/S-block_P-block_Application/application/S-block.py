@@ -27,7 +27,7 @@ def convert_to_bits(input_data):
         input_data_bin = bin(input_data)[2:]
     elif int(input_data, 16):
         input_data_bin = bin(int(input_data, 16))[2:].zfill(INPUT_DATA_SIZE)
-    elif isinstance(input_data, str):
+    elif int(input_data, 2):
         pass
     else:
         raise Exception('Invalid input')
@@ -49,7 +49,6 @@ def divide_into_tetrads(input_data_bin):
 
 def search_value_s_box(blocks, s_box):
     output_data_bin = ''
-    print(blocks)
     for block in blocks:
         outer_bits = str(block)[0:2]
         inner_bits = str(block)[2:4]
@@ -82,3 +81,25 @@ def reverse_s_box(s_box):
             reverse_s_box[row][col] = i_bin + j_bin
 
     return reverse_s_box
+
+
+if __name__ == "__main__":
+    data_type = input('Choose input data type (int/hex/bin): ')
+    input_data = input('Enter data to cipher (length = 8 bits): ')
+    if data_type == 'int':
+        input_data = int(input_data)
+    s_box = s_box_generation()
+    input_data_binary = convert_to_bits(input_data)
+    blocks = divide_into_tetrads(input_data_binary)
+    output_data_binary = search_value_s_box(blocks, s_box)
+    output_data = convert_bin_to_output_hex(output_data_binary)
+    print('Result of direct symmetric cryptographic S-box transformation: ', output_data)
+    output_data_bin = convert_to_bits(output_data)
+    s_box_reverse = reverse_s_box(s_box)
+    blocks = divide_into_tetrads(output_data_bin)
+    input_data_binary = search_value_s_box(blocks, s_box_reverse)
+    if data_type == 'int':
+        input_data = convert_bin_to_output_int(input_data_binary)
+    if data_type == 'hex':
+        input_data = convert_bin_to_output_hex(input_data_binary)
+    print('Result of indirect symmetric cryptographic S-box transformation: ', input_data)

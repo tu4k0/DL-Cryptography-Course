@@ -61,3 +61,23 @@ def reverse_p_box(p_box_1, p_box_2):
         reverse_p_box[i] = p_box_1[position]
 
     return p_box_1, reverse_p_box
+
+
+if __name__ == "__main__":
+    data_type = input('Choose input data type (int/hex/bin): ')
+    input_data = input('Enter data to cipher (length = 8 bits): ')
+    if data_type == 'int':
+        input_data = int(input_data)
+    p_box_1, p_box_2 = p_box_calculation()
+    input_data_binary = convert_to_bits(input_data)
+    output_data_binary = replace_value_p_box(input_data_binary, p_box_1, p_box_2)
+    output_data = convert_bin_to_output_hex(output_data_binary)
+    print('Result of direct symmetric cryptographic P-box transformation (hex): ', output_data)
+    output_data_bin = convert_to_bits(output_data)
+    p_box_1, p_box_reverse = reverse_p_box(p_box_1, p_box_2)
+    input_data_binary = replace_value_p_box(output_data_bin, p_box_1, p_box_reverse)
+    if data_type == 'int':
+        input_data = convert_bin_to_output_int(input_data_binary)
+    if data_type == 'hex':
+        input_data = convert_bin_to_output_hex(input_data_binary)
+    print('Result of indirect symmetric cryptographic S-box transformation: ', input_data)
