@@ -15,5 +15,13 @@
 3. Довжина вхідних даних - 8 бітів (1 байт), вихідних - 8 бітів;
 4. Таблиці S-блоків мають розмір 2х2 (2 inner bits, 4 outer bits), кожна комірка містить унікальне значення від 0-15(F) у двійковому вигляді.  
 
-## Результати тестів:   
-To be added...
+
+## Інструкція щодо запуску коду:  
+У cmd за розташуванням проекту (..\Practice3\S-block_P-bloc_Application\application) набрати команду python S-block.py (для S-блоку) або python P-block.py (для P-блоку) та слідувати настановам інтерфейсу.  
+
+## Результати виконання програми для вхідного значення 200 (тип даних integer):  
+S-box  
+![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/S-block_P-block_Application/images/S-block_result.png)
+
+P-box  
+![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/S-block_P-block_Application/images/P-block_result.png)
