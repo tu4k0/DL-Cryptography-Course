@@ -93,7 +93,7 @@ if __name__ == "__main__":
     blocks = divide_into_tetrads(input_data_binary)
     output_data_binary = search_value_s_box(blocks, s_box)
     output_data = convert_bin_to_output_hex(output_data_binary)
-    print('Result of direct symmetric cryptographic S-box transformation: ', output_data)
+    print('Result of direct symmetric cryptographic S-box transformation (hex): ', output_data)
     output_data_bin = convert_to_bits(output_data)
     s_box_reverse = reverse_s_box(s_box)
     blocks = divide_into_tetrads(output_data_bin)
