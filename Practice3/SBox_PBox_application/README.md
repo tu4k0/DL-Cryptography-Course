@@ -21,10 +21,10 @@
 
 ## Результати виконання програми для вхідного значення 200 (тип даних integer):  
 S-box  
-![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/S-block_P-block_Application/images/S-block_result.png)
+![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/SBox_PBox_application/images/S-block_result.png)
 
 P-box  
-![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/S-block_P-block_Application/images/P-block_result.png)
+![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/SBox_PBox_application/images/P-block_result.png)
 
 ## Результати тестів:  
 ![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/SBox_PBox_application/images/tests.png)
