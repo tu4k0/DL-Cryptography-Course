@@ -25,13 +25,13 @@ def convert_to_bits(input_data):
     elif isinstance(input_data, str):
         pass
     else:
-        raise Exception('Invalid input')
+        return Exception('Invalid input')
     if len(input_data_bin) == 1 or len(input_data_bin) == 2:
         pass
     elif len(input_data_bin) < 8:
         input_data_bin = input_data_bin.rjust(8, '0')
     elif len(input_data_bin) > 8:
-        raise Exception('Invalid input size')
+        return Exception('Invalid input size')
 
     return input_data_bin
 
