@@ -17,7 +17,7 @@
 
 
 ## Інструкція щодо запуску коду:  
-У cmd за розташуванням проекту (..\Practice3\S-block_P-bloc_Application\application) набрати команду python S-block.py (для S-блоку) або python P-block.py (для P-блоку) та слідувати настановам інтерфейсу.  
+У cmd за розташуванням проекту (..\Practice3\SBox_PBox_application\application) набрати команду python s_box.py (для S-блоку) або python p-box.py (для P-блоку) та слідувати настановам інтерфейсу.  
 
 ## Результати виконання програми для вхідного значення 200 (тип даних integer):  
 S-box  
@@ -25,3 +25,6 @@ S-box
 
 P-box  
 ![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/S-block_P-block_Application/images/P-block_result.png)
+
+## Результати тестів:  
+![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice3/SBox_PBox_application/images/tests.png)
