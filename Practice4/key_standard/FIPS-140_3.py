@@ -8,13 +8,37 @@ def generate_sequence():
 
 
 def monobit_test(bits):
-    bits_1 = bits.count('1')
+    bits_1 = 0
+    for i in range(len(bits)):
+        if bits[i] == '1':
+            bits_1 += 1
     if 9654 < bits_1 < 10346:
         status = True
     else:
         status = False
 
     return status
+
+
+def maximum_length_of_the_series_test(bits):
+    counter = 1
+    series = 1
+    for i in range(len(bits)):
+        if i == len(bits) - 1:
+            break
+        if bits[i] == bits[i+1]:
+            counter += 1
+        elif bits[i] != bits[i+1]:
+            if series < counter:
+                series = counter
+            counter = 1
+    if series > 36:
+        status = False
+    else:
+        status = True
+
+    return status
+
 
 def convert_to_bit(input_value):
     input_data_bin = ''
@@ -31,7 +55,8 @@ def convert_to_bit(input_value):
     return input_data_bin
 
 
-seq = generate_sequence()
-print(len(seq))
-print(convert_to_bit('mbappe'))
-print(monobit_test('111110010101010011111000000'))
+# seq = generate_sequence()
+# print(seq)
+# print(convert_to_bit('mbappe'))
+# print(monobit_test(seq))
+# print(maximum_length_of_the_series(seq))
