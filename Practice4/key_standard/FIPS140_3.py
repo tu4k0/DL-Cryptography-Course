@@ -1,12 +1,3 @@
-import binascii
-import random
-
-
-def generate_sequence():
-    bits_sequence = ''.join(random.choice('01') for _ in range(20000))
-    return bits_sequence
-
-
 def monobit_test(bits):
     bits_1 = 0
     for i in range(len(bits)):
@@ -102,7 +93,6 @@ def series_length_test(bits):
             counter = 0
         else:
             pass
-
     if 2267 < series_1_length['1'] < 2733 and 1079 < series_1_length['2'] < 1421 and 502 < series_1_length['3'] < 748 and 223 < series_1_length['4'] < 402 and 90 < series_1_length['5'] < 223 and 90 < series_1_length['6'] < 223:
         if 2267 < series_0_length['1'] < 2733 and 1079 < series_0_length['2'] < 1421 and 502 < series_0_length['3'] < 748 and 223 < series_0_length['4'] < 402 and 90 < series_0_length['5'] < 223 and 90 < series_0_length['6'] < 223:
             status = True
@@ -112,26 +102,3 @@ def series_length_test(bits):
         status = False
 
     return status
-
-
-def convert_to_bits(input_value):
-    input_data_bin = ''
-    if isinstance(input_value, int):
-        input_data_bin = bin(input_value)[2:]
-    elif isinstance(input_value, str):
-        try:
-            int(input_value, 16)
-            input_data_bin = bin(int(input_value, 16))[2:]
-        except ValueError:
-            input_data_hex = binascii.hexlify(input_value.encode())
-            input_data_bin = bin(int(input_data_hex, 16))[2:].zfill(8 * ((len(input_data_hex) + 1) // 2))
-
-    return input_data_bin
-
-
-seq = generate_sequence()
-# # print(convert_to_bit('mbappe'))
-# print(monobit_test(seq))
-# print(maximum_length_of_the_series_test(seq))
-# print(pokker_test(seq))
-print(series_length_test(seq))
