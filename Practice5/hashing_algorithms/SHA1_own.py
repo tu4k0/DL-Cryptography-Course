@@ -1,4 +1,4 @@
-def SHA1(message):
+def SHA1_own(message):
     def rotl(x, n):
         return ((x << n) | (x >> (32 - n))) & 0xffffffff
 
@@ -74,6 +74,3 @@ def SHA1(message):
         sha1_hash = '%08x%08x%08x%08x%08x' % (h0, h1, h2, h3, h4)
 
         return sha1_hash
-
-
-
