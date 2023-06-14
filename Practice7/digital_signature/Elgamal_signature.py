@@ -4,6 +4,9 @@ from Practice4.key_standard.FIPS140_3 import *
 
 
 def generate_random_prime_number():
+    def Eiler(p):
+        return p-1
+
     bits_sequence = ''
     test_1, test_2, test_3, test_4 = False, False, False, False
     while (test_1 or test_2 or test_3 or test_4) == False:
@@ -13,7 +16,9 @@ def generate_random_prime_number():
         test_3 = pokker_test(bits_sequence)
         test_4 = series_length_test(bits_sequence)
     p = int(bits_sequence, 2)
-    g = random.randint(1, p - 1)
+    g = 0
+    while pow(g, Eiler(p), p) != 1:
+        g = random.randint(1, 256)
 
     return p, g
 
@@ -43,7 +48,7 @@ def check_signature(p, g, b, r, s, m):
     u1 = m * (1 // s) % (p - 1)
     u2 = (r * 1 // s) % (p - 1)
     v = (pow(g, u1) * pow(y, u2)) % p
-    if v != r:
+    if v == r:
         return True
     else:
         return False
