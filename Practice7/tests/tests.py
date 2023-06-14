@@ -14,6 +14,16 @@ class Tests(unittest.TestCase):
         verification_status = Elgamal_signature.check_signature(p, q, b, r, s, m)
         self.assertTrue(True, verification_status)
 
+    def test_Elgamal_signature_modified_data(self):
+        input_text = 'Kyrylo'
+        p, q = Elgamal_signature.generate_random_prime_number()
+        a, b = Elgamal_signature.key_generation(p, q)
+        r, s, m = Elgamal_signature.sign_message(p, q, a, input_text)
+        r = 1
+        s = 2
+        verification_status = Elgamal_signature.check_signature(p, q, b, r, s, m)
+        self.assertFalse(False, verification_status)
+
     def test_Elgamal_encryption(self):
         message = 'Kyrylo'
         blocks = Elgamal_encryption.create_blocks(message)
