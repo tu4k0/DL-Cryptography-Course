@@ -19,7 +19,7 @@
 У cmd або IDE (які мають модуль для роботи з Python) за розташуванням проекту (..\Practice9) набрати команду python main.py  
 
 ## Результати виконання програми:  
-![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice9/images/main_screenshot.png) 
+![Image text]() 
 
 ## Результати тестів:  
 ![Image text](https://github.com/tu4k0/DL-Cryptography-Course/blob/master/Practice9/images/test_screenshot.png)
